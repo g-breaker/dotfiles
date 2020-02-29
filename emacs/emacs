@@ -1,0 +1,32 @@
+;;;; Matias's emacs file
+;; Matias G. Greaker
+;; 9.nov.2019
+
+;; ENVIRONMENT
+(unless (getenv "LANG")(setenv "LANG" "en_US.UTF-8"))
+
+
+;; PACKAGES
+;; add MELPA packages
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+
+
+;; THEME AND VISUAL SETTINGS
+
+;; high-contrast zenburn theme (M-x package-list-packages to install)
+(load-theme 'hc-zenburn t)
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,32 +1,46 @@
-;;;; Matias's emacs file
-;; Matias G. Greaker
-;; 9.nov.2019
+;; no start up message
+(setq inhibit-startup-message t)
+(setq initial-scratch-message "")
 
-;; ENVIRONMENT
-(unless (getenv "LANG")(setenv "LANG" "en_US.UTF-8"))
+;; Theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'zenburn t)
 
+;; Always follow symbol links
+(setq vc-follow-symlinks nil)
+(setq org-confirm-babel-evaluate nil)
 
-;; PACKAGES
-;; add MELPA packages
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
+;; Send backup files to back up directory ( they make me sick)
+(setq backup-directory-alist'((""."~/.emacs.d/backup")))
+    
+;; Tabs and spaces
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
 
+;; CUA mode
+(cua-mode t)
 
-;; THEME AND VISUAL SETTINGS
+;; Line numbers
+(global-linum-mode t)
 
-;; high-contrast zenburn theme (M-x package-list-packages to install)
-(load-theme 'hc-zenburn t)
+;; Visual
+(global-visual-line-mode 1)
 
-
-
-
-
-
-
-
-
+;; User customization for Verilog mode
+(setq verilog-indent-level             4
+      verilog-indent-level-module      4
+      verilog-indent-level-declaration 4
+      verilog-indent-level-behavioral  4
+      verilog-indent-level-directive   0
+      verilog-case-indent              4
+      verilog-auto-newline             nil
+      verilog-auto-indent-on-newline   t
+      verilog-tab-always-indent        t
+      verilog-auto-endcomments         t
+      verilog-minimum-comment-distance 40
+      verilog-indent-begin-after-if    t
+      verilog-auto-lineup              '(all))
 
 
 
